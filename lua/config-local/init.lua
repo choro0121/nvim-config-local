@@ -81,7 +81,8 @@ end
 
 ---Look for config files
 function M.lookup()
-  local path = M.config.lookup_parents and ";." or "."
+  -- local path = M.config.lookup_parents and ";." or "."
+  local path = vim.fn.getcwd()
   for _, filename in ipairs(M.config.config_files) do
     filename = vim.fn.findfile(filename, path)
     if filename ~= "" then
